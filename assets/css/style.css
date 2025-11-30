@@ -38,13 +38,18 @@
 .hero-section > img{
   width: 100%;
   height:  430px;
-  position : absolute;
+  position: absolute;
+  top: 0;
   z-index : -3;
-  
+    object-fit: cover;
+    object-position: 0, -50px;
+}
+
+.hero-section > img {
+    filter: brightness(0.6);
 }
 
 .hero-content{
-    background-color: rgba(0, 0, 0, 0.5);
   align-content: center;
   justify-content: center;
   position: relative;
@@ -54,8 +59,15 @@
 
 .hero-section .hero-content .judul{
     color: rgb(255, 255, 255);
-    font-size: var(--font-size-xxl);
+    font-size: 2.6rem;
     font-weight: var(--font-weight-bold);
     font-family: "poppins", sans-serif;
-    
   }
+
+.hero-section .hero-content .subjudul{
+  color: rgb(255, 255, 255);
+  font-size: var(--font-size-l);
+  font-weight: var(--font-weight-medium);
+  margin-top: 5px;
+  font-family: "poppins", sans-serif;
+}
