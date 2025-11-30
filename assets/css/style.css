@@ -19,6 +19,8 @@
   --font-size-l: 1.5rem;
   --font-size-xl: 2rem;
   --font-size-xxl: 2.3rem;
+  --font-size-xxxl: 2.5rem;
+  --font-size-xxxxl:5rem;
 
   /* Ketebalan Font */
   --font-weight-normal: 400;
@@ -40,9 +42,15 @@
   height:  430px;
   position: absolute;
   top: 0;
-  z-index : -3;
+  left: 0;
+  z-index : -999;
     object-fit: cover;
     object-position: 0, -50px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.hero-section{
+  align-content: center;
 }
 
 .hero-section > img {
@@ -59,15 +67,76 @@
 
 .hero-section .hero-content .judul{
     color: rgb(255, 255, 255);
-    font-size: 2.6rem;
+    font-size: 5.5rem;
     font-weight: var(--font-weight-bold);
     font-family: "poppins", sans-serif;
+    margin-top: 2.3rem;
+    margin-bottom: 0;
   }
 
 .hero-section .hero-content .subjudul{
   color: rgb(255, 255, 255);
   font-size: var(--font-size-l);
   font-weight: var(--font-weight-medium);
-  margin-top: 5px;
   font-family: "poppins", sans-serif;
+  margin-top: 0;
+    margin-bottom: 2rem;
+}
+
+.hero-section .search-bar {
+     display: flex;
+    background-color: var(--white-color);
+    border-radius: var(--border-radius-s);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    margin-top: 0rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40rem;
+    height: 4rem;
+    align-content: left;
+  }
+  
+#magnifying-glass {
+    width: 2.3rem;
+    margin-left: 0.25rem;
+}
+
+#search-query { 
+    /* background-color: turquoise; */
+    position: absolute;
+    padding: 10px;
+    width: 32rem;
+    height: 3rem;
+    align-self: center;
+    margin-top: .5rem;
+    border: none;
+    outline: none;
+    font-size: var(--font-size-m);
+    font-family: "poppins", sans-serif;
+}
+
+#search {
+    background-color: var(--white-color);
+    position: relative;
+    align-self: center;
+    margin-top:0.7rem ;
+    margin-left: 33.5rem;
+    border-radius: 10px;
+}
+
+#search:hover {
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.hero-section .artikel{
+  width: 90%; /* Lebar kotak */
+  height: 1500px; /* Tinggi kotak */
+
+    /* 2. Memberikan Tampilan Visual */
+    background-color: rgba(162, 162, 162, 0.315); /* Warna latar belakang */
+    border: none; /* Garis tepi (border) */
+    border-radius: var(--border-radius-m);
+    
+    margin: 70px auto;
 }
