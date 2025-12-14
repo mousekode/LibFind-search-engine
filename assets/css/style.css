@@ -141,13 +141,6 @@
     margin: 70px auto;
 }
 
-.number {
-  padding: 10px;
-  margin-left: 10px;
-  width: 45px;
-  font-size: xx-large;
-  background-color: crimson;
-}
 .artikel {
   display: flex;
   flex-direction: column;
