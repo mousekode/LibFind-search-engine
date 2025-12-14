@@ -1,6 +1,6 @@
 
 :root {
-  font-family: "poppins";
+  font-family: "poppins", arial, sans-serif;
   margin: 0;
   padding: 0;
   
@@ -139,4 +139,78 @@
     border-radius: var(--border-radius-m);
     
     margin: 70px auto;
+}
+
+.number {
+  padding: 10px;
+  margin-left: 10px;
+  width: 45px;
+  font-size: xx-large;
+  background-color: crimson;
+}
+.artikel {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  margin: auto;
+}
+
+.artikel .card {
+  width: 95%;
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  /* background-color: white; */
+  border-radius: 1.8rem;
+}
+.artikel .card .content {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  /* background-color: crimson; */
+}
+
+.artikel ol {  
+  width: 87%;
+  display: flex;
+  flex-direction: column;
+  /* background-color: #FFF58A; */
+  align-self: center;
+  list-style-position: inside;
+}
+
+#ol-card {
+  font-family: "Poppins", sans-serif;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.artikel li{
+  list-style-position: outside;
+  margin-bottom: 1.5rem;
+  padding: 0.5rem;
+  background-color: #ffff;
+  border-radius: 1.8rem;
+}
+
+.artikel li::marker {
+  font-size: xx-large;
+  font-weight: bold;
+  margin-right: 2rem;
+  margin-left: 1rem;
+}
+
+/* Nganu judul cardnya */
+#card-title {
+  font-size: xx-large;
+  font-weight: bold;
+  color: blue;  
+  text-decoration: underline;
+  margin-left: .5rem;
+}
+
+#card-subtitle {
+  font-size: large;
+  color: black;  
+  margin-left: .5rem;
 }
