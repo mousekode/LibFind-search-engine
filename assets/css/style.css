@@ -1,12 +1,40 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-VariableFont_wdth\,wght.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Nunito';
+    src: url('../fonts/Nunito-VariableFont_wght.ttf') format('truetype');
+}
+
 :root {
-    /* HL means highlight */
-    --bg-color: rgb(34, 40, 49);
-    --hl-darkgray-color: rgb(41, 46, 53);
+    /* BG means background, HL means highlight */
+    --bg-color: #131314;
+    --hl-darkgray-color: #1e1f20;
     --hl-gray-color: rgb(57, 62, 70);
+
+    /* Text colors */
+    --text-color: #ffffff;
+    --text-secondary-color: #b0b3b8;
+
+    /* Temporary highlights */
+    --temp-hl-color-1: #2a9d8f;
+    --temp-hl-color-2: #e76f51;
+}
+
+header {
+    text-align: center;
+    height: 5vh;
+    width: 100vw;
+    background-color: var(--temp-hl-color-2);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Nunito';
     background-color: var(--bg-color);
     margin: 0;
     padding: 0;

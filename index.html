@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LibFind</title>
+    <!-- General stylesheet -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!-- Local stylesheet -->
+    <link rel="stylesheet" href="/assets/css/index.css">
 </head>
 <body>
     <!-- Bagian header -->
@@ -17,15 +21,17 @@
     </header>
 
     <!-- Bagian utama -->
-    <div class="welcome-container">
-        <h1>Selamat datang di LibFind!</h1>
-        <h2>Cari dokumen yang anda butuhkan</h2>
-    </div>
-    <div>
-        <form action="/search" method="get">
-            <input type="text" name="query" placeholder="Masukkan kata kunci pencarian..." required>
-            <button type="submit">Cari</button>
-        </form>
-    </div>
+     <div id="main-container">
+         <div id="welcome-container">
+             <h1>Selamat datang di LibFind!</h1>
+             <h2>Cari dokumen yang anda butuhkan</h2>
+         </div>
+         <div>
+             <form action="/search" method="get">
+                 <input type="text" name="query" placeholder="Masukkan kata kunci..." required>
+                 <button type="submit">Cari</button>
+             </form>
+         </div>
+     </div>
 </body>
 </html>
