@@ -6,9 +6,26 @@
     <title>LibFind</title>
 </head>
 <body>
+    <!-- Bagian header -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Beranda</a></li>
+                <li><a href="/about">Tentang Kami</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Bagian utama -->
     <div class="welcome-container">
         <h1>Selamat datang di LibFind!</h1>
         <h2>Cari dokumen yang anda butuhkan</h2>
+    </div>
+    <div>
+        <form action="/search" method="get">
+            <input type="text" name="query" placeholder="Masukkan kata kunci pencarian..." required>
+            <button type="submit">Cari</button>
+        </form>
     </div>
 </body>
 </html>

@@ -1,0 +1,13 @@
+:root {
+    /* HL means highlight */
+    --bg-color: rgb(34, 40, 49);
+    --hl-darkgray-color: rgb(41, 46, 53);
+    --hl-gray-color: rgb(57, 62, 70);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 0;
+}
