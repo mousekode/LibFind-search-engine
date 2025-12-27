@@ -1,94 +1,122 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    <title>LibFind - Find Documents</title>
-</head>
-<body>
-    <main>
-        <div class="hero-section">
-                <img src="./assets/img/bg-index-img.png" />
-            <div class="hero-content">
-                <h1 class = "judul"> LibFind</h1>
-                <h2 class = "subjudul">Cari Dokumen Kesukaan Anda</h3>
-            </div>
-            <div class="search-bar" id="search-query-div">
-                <img src="./assets/img/magnifying-glass.svg" id="magnifying-glass">
-                <form action="/search" method="get">
-                <input type="search" id="search-query" name="q" placeholder="Masukan Kata Kunci....">
-                <button class="btn-search" id="search" type="submit">
-                    <img xmlns="http://www.w3.org/2000/svg" src="./assets/img/arrow-black.svg" alt="Search">
-                </button>
-                </form>
-            </div>
-            <!-- bagan kartu -->
-            <div class = "artikel">
-                <ol id="ol-card">
-                    <li>
-                        <div class="card">
-                            <div class="content">
-                                <a id="card-title" href="">Lorem ipsum dolor sit amet.</a>
-                                <p id="card-subtitle">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Obcaecati culpa aliquam aspernatur? Natus doloribus nam suscipit
-                                    laudantium ratione mollitia aliquam.
-                                </p>
-                            </div>
-                        </div> 
-                    </li>
-                    <li>
-                        <div class="card">
-                            <div class="content">
-                                <a id="card-title" href="">Lorem ipsum dolor sit amet.</a>
-                                <p id="card-subtitle">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Obcaecati culpa aliquam aspernatur? Natus doloribus nam suscipit
-                                    laudantium ratione mollitia aliquam.
-                                </p>
-                            </div>
-                        </div> 
-                    </li>
-                    <li>
-                        <div class="card">
-                            <div class="content">
-                                <a id="card-title" href="">Lorem ipsum dolor sit amet.</a>
-                                <p id="card-subtitle">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Obcaecati culpa aliquam aspernatur? Natus doloribus nam suscipit
-                                    laudantium ratione mollitia aliquam.
-                                </p>
-                            </div>
-                        </div> 
-                    </li>
-                    <li>
-                        <div class="card">
-                            <div class="content">
-                                <a id="card-title" href="">Lorem ipsum dolor sit amet.</a>
-                                <p id="card-subtitle">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Obcaecati culpa aliquam aspernatur? Natus doloribus nam suscipit
-                                    laudantium ratione mollitia aliquam.
-                                </p>
-                            </div>
-                        </div> 
-                    </li>
-                    <li>
-                        <div class="card">
-                            <div class="content">
-                                <a id="card-title" href="">Lorem ipsum dolor sit amet.</a>
-                                <p id="card-subtitle">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Obcaecati culpa aliquam aspernatur? Natus doloribus nam suscipit
-                                    laudantium ratione mollitia aliquam.
-                                </p>
-                            </div>
-                        </div> 
-                    </li>
-                </ol> 
-            </div>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LibFind - New Design</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <nav id="sidebar-menu">
+      <ul>
+        <li><a href="#">Document 1</a></li>
+        <li><a href="#">Document 2</a></li>
+        <li><a href="#">Document 3</a></li>
+        <li><a href="#">Document 4</a></li>
+      </ul>
+    </nav>
+    <div id="main-content">
+      <header class="header">
+        <div class="header-background"></div>
+        <div class="nav-bar">
+          <span id="hamburger" class="menu-icon">&#9776;</span>
+          <span class="logo">LibFind</span>
         </div>
+      </header>
+    </div>
+    <main id="home-screen">
+      <div class="welcome-text">
+        <h1>Hello Readers</h1>
+        <p>Cari Dokumen Kesukaan Anda</p>
+      </div>
     </main>
-</body>
+    <div class="search-container">
+      <input type="text" id="search-input" placeholder="Find your book" />
+      <button id="search-button">&rarr;</button>
+    </div>
+    <section id="results-screen">
+      <div id="fade-mask"></div>
+      <div class="results-list">
+        <div class="result-item">
+          <p class="number">1.</p>
+          <div class="content">
+            <a href="#" class="title">Lorem ipsum dolor sit amet</a>
+            <p class="snippet">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+            </p>
+          </div>
+        </div>
+        <div class="result-item">
+          <p class="number">2.</p>
+          <div class="content">
+            <a href="#" class="title">Lorem ipsum dolor sit amet</a>
+            <p class="snippet">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+            </p>
+          </div>
+        </div>
+        <div class="result-item">
+          <p class="number">3.</p>
+          <div class="content">
+            <a href="#" class="title">Lorem ipsum dolor sit amet</a>
+            <p class="snippet">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+            </p>
+          </div>
+        </div>
+        <div class="result-item">
+          <p class="number">3.</p>
+          <div class="content">
+            <a href="#" class="title">Lorem ipsum dolor sit amet</a>
+            <p class="snippet">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+            </p>
+          </div>
+        </div>
+        <div class="result-item">
+          <p class="number">3.</p>
+          <div class="content">
+            <a href="#" class="title">Lorem ipsum dolor sit amet</a>
+            <p class="snippet">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+            </p>
+          </div>
+        </div>
+        <div class="result-item">
+          <p class="number">3.</p>
+          <div class="content">
+            <a href="#" class="title">Lorem ipsum dolor sit amet</a>
+            <p class="snippet">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+            </p>
+          </div>
+        </div>
+        <div class="result-item">
+          <p class="number">3.</p>
+          <div class="content">
+            <a href="#" class="title">Lorem ipsum dolor sit amet</a>
+            <p class="snippet">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
 </html>
