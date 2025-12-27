@@ -1,13 +1,13 @@
 // script.js
 
 document.addEventListener("DOMContentLoaded", () => {
+
   const searchButton = document.getElementById("search-button");
   const homeScreen = document.getElementById("home-screen");
   const resultsScreen = document.getElementById("results-screen");
   const searchInput = document.getElementById("search-input");
   const hamburgerIcon = document.getElementById("hamburger");
   const body = document.body;
-
   // Fungsi untuk menampilkan hasil
   const showResults = () => {
     // 1. Sembunyikan konten utama (Hello Readers)
@@ -30,6 +30,11 @@ document.addEventListener("DOMContentLoaded", () => {
     searchContainer.style.position = "fixed"; // Gunakan fixed agar tetap di tempat
     searchContainer.style.top = "auto"; // Sesuaikan posisi di bawah header
     searchContainer.style.bottom = "80px"; // Hilangkan posisi bottom
+  };
+
+  // Sambung ke connector.js
+  const passToConnector = (value) => {
+    runQuery(value);
   };
 
   // Tambahkan event listener untuk tombol
