@@ -48,7 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
   resultsScreen.style.opacity = "0";
   //Fungsi membuka sidebar
   const toggleSideBar = () => {
-    console.log("toggle dipanggil");
     body.classList.toggle("sidebar-open");
   };
 
