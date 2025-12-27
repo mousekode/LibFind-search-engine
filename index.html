@@ -22,16 +22,21 @@
 
     <!-- Bagian utama -->
      <div id="main-container">
-         <div id="welcome-container">
-             <h1>Selamat datang di LibFind!</h1>
-             <h2>Cari dokumen yang anda butuhkan</h2>
-         </div>
-         <div>
-             <form action="/search" method="get">
-                 <input type="text" name="query" placeholder="Masukkan kata kunci..." required>
-                 <button type="submit">Cari</button>
-             </form>
-         </div>
+        <div id="mid-container">
+            <div id="welcome-container">
+               <h1>Selamat datang di LibFind!</h1>
+               <h2>Cari dokumen yang anda butuhkan</h2>
+            </div>
+            <div id="search-container">
+               <img src="/assets/img/magnifying-glass-white.svg" alt="Search Icon" id="search-icon">
+               <form contenteditable="true" action="/search" method="get" id="search-form">
+                   <input type="text" name="query" placeholder="Masukkan kata kunci..." required id="input-bar">
+                   <button type="submit" id="submit-btn">
+                        <img src="/assets/img/send.svg" alt="Submit Icon" id="submit-icon">
+                   </button>
+               </form>
+            </div>
+        </div>
      </div>
 </body>
 </html>

@@ -1,26 +1,74 @@
 #main-container {
-    background-color: var(--temp-hl-color-1);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: clamp(300px, 80%, 1400px); 
+    width: cover; 
 
-    margin: 0 auto;
-    padding: 20px 40px;
+    margin-top: auto;
 }
 
-#main-container h1 {
-    font-size: clamp(2.8rem, 3.5vw, 5rem);
+#mid-container {
+    width: clamp(300px, 70%, 600px);
+}
+
+#welcome-container h1 {
+    font-size: clamp(2rem, 3.5vw, 3rem);
     font-weight: 700;
     margin-bottom: 5px;
     color: var(--text-color);
-    background-color: brown;
 }
 
-#main-container h2 {
+#welcome-container h2 {
     font-size: clamp(1.8rem, 2.5vw, 3rem);
     font-weight: 500;
+    margin-top: 0;
     color: var(--text-color);
-    background-color: darkblue;
+}
+
+#search-container {
+    display: grid;
+    grid-template-columns: 1fr 10fr;
+    gap: 2.2rem;
+
+    background-color: var(--hl-darkgray-color);
+    margin-top: 2rem;
+    width: cover;
+    border-radius: 360px;
+    height: clamp(5rem, 8vh, 9rem);
+
+    align-items: center;
+}
+
+#search-icon {
+    width: clamp(1.5rem, 3vw, 2.5rem);
+    height: clamp(1.5rem, 3vw, 2.5rem);
+    margin-left: 1.5rem;
+    padding-right: .5rem;
+}
+
+
+#input-bar {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: var(--text-color);
+    font-size: clamp(1.5rem, 2vw, 2.5rem);
+    width: 80%;
+}
+
+#submit-btn {
+    background-color: var(--hl-warm-blue-color);
+    border: none;
+    border-radius: 360px;
+    width: clamp(3rem, 4vw, 4rem);
+    height: clamp(3rem, 4vw, 4rem);
+    cursor: pointer;
+    margin-left: 1rem;
+
+    align-content: center;
+    justify-content: center;
+
+    /* content-visibility: hidden; */
+    /* background-color: transparent; */
 }

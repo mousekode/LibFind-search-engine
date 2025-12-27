@@ -12,15 +12,19 @@
     /* BG means background, HL means highlight */
     --bg-color: #131314;
     --hl-darkgray-color: #1e1f20;
-    --hl-gray-color: rgb(57, 62, 70);
+    --hl-warm-blue-color: #4A90E2;
 
     /* Text colors */
     --text-color: #ffffff;
     --text-secondary-color: #b0b3b8;
+    --text-placeholder-color: #5a5c60;
 
     /* Temporary highlights */
     --temp-hl-color-1: #2a9d8f;
     --temp-hl-color-2: #e76f51;
+
+    /* Rainbow gradient */
+    --rainbow-gradient: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
 }
 
 header {
