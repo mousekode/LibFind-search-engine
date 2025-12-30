@@ -12,34 +12,49 @@ document.addEventListener("DOMContentLoaded", () => {
   // Fungsi untuk menampilkan hasil
 
   const showResults = async () => {
+    // 2. Tampilkan area hasil pencarian setelah transisi home-screen selesai
+
+    // Atur opacity hasil pencarian agar terlihat
+    setTimeout(() => {
+      homeScreen.classList.add("hidden");
+      setTimeout(() => {
+        resultsScreen.style.opacity = "1";
+        resultsScreen.classList.remove("hidden");
+      }, 0);
+    }, 300); // Sesuaikan dengan durasi transisi di CSS (0.3s)
+
     const query = searchInput.value;
-    const backendUrl = `http://127.0.0.1:5000/api/search?q=${query}`;
+
+    if (!query.trim()) {
+      console.warn("input pencarian kosong.");
+      return;
+    }
+    const encodedQuery = encodeURIComponent(query);
+    const backendUrl = `http://127.0.0.1:8000/api/search?q=${encodedQuery}`;
 
     // 1. Sembunyikan konten utama (Hello Readers)
+    resultsScreen.style.opacity = "0";
     homeScreen.style.opacity = "0";
     homeScreen.style.position = "fixed";
 
     //mencoba ambil data dari backend
     try {
       const response = await fetch(backendUrl);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: &{response.status}`);
+      }
       const data = await response.json();
-      renderResults(data);
+
+      if (data && data.results) {
+        renderResults(data.results);
+      } else {
+        renderResults([]);
+      }
     } catch (error) {
       console.error("Gagal mengambil data dari backend:", error);
       resultsList.innerHTML =
         '<div class="result-item">Gagal Memuat Hasil. Cek koneksi BackEnd Anda.</div>';
     }
-
-    // 2. Tampilkan area hasil pencarian setelah transisi home-screen selesai
-    setTimeout(() => {
-      homeScreen.classList.add("hidden");
-      resultsScreen.classList.remove("hidden");
-
-      // Atur opacity hasil pencarian agar terlihat
-      setTimeout(() => {
-        resultsScreen.style.opacity = "1";
-      }, 10);
-    }, 300); // Sesuaikan dengan durasi transisi di CSS (0.3s)
 
     // 3. Posisikan search-container di bawah header untuk Gambar 1
     searchContainer.style.position = "fixed"; // Gunakan fixed agar tetap di tempat
@@ -55,7 +70,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- Inisialisasi Tampilan ---
   // Pastikan hasil pencarian disembunyikan saat load
   resultsScreen.classList.add("hidden");
-  resultsScreen.style.opacity = "0";
   //Fungsi membuka sidebar
   const toggleSideBar = () => {
     body.classList.toggle("sidebar-open");

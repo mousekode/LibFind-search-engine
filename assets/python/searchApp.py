@@ -41,7 +41,8 @@ def search_documents():
       doc = DOCUMENTS[i].copy()
       doc['score'] = score
       doc['relevansi'] = f"{score*100:.2f}%"
-      result.append(doc)
+      results.append(doc)
+
   results.sort(key=lambda x: x['score'], reverse=True)
 
   for rank, doc in enumerate(results, 1):
@@ -61,4 +62,4 @@ def search_documents():
   })
 
 if __name__ == '__main__':
-  app.run(debug=True)
+  app.run(debug=True, port=8000)
