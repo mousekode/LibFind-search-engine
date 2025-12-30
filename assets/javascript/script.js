@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const hamburgerIcon = document.getElementById("hamburger");
   const body = document.body;
   // Fungsi untuk menampilkan hasil
+
   const showResults = async () => {
     const query = searchInput.value;
     const backendUrl = `http://127.0.0.1:5000/api/search?q=${query}`;
