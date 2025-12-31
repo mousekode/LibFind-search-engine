@@ -47,16 +47,25 @@ body {
 
 /* Sidebar Style */
 #sidebar-menu {
-  height: 100%;
-  width: 250px;
+  height: 100vh;
+  width: 350px;
   position: fixed;
   z-index: 25;
   top: 0;
   left: 0;
   background-color: var(--card-bg);
-  padding-top: 60px;
-  transform: translateX(-250px);
+  padding-top: 35px;
+  transform: translateX(-350px);
   transition: transform 0.3s ease-in-out;
+  overflow-y: auto;
+}
+
+#sidebar-menu::-webkit-scrollbar {
+  width: 5px;
+}
+
+#sidebar-menu::-webkit-scrollbar-track {
+  background-color: var(--dark-bg);
 }
 
 #sidebar-menu ul {
@@ -64,13 +73,27 @@ body {
   padding: 0;
 }
 
+#sidebar-menu h3 {
+  margin-top: 0px;
+  padding: 5px 17px;
+  border-bottom: 1.5px solid #666666;
+  font-size: 1.3em;
+}
+
 #sidebar-menu a {
-  padding: 15px 25px;
+  padding: 15px 17px;
   text-decoration: none;
-  font-size: 1.1em;
+  font-size: 0.9em;
   color: var(--text-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   display: block;
   transition: background-color 0.3s;
+}
+
+#sidebar-menu ul li a:hover {
+  background-color: #666666;
 }
 /* style.css */
 #main-content {
@@ -84,11 +107,11 @@ body {
 }
 
 .sidebar-open #main-content {
-  transform: translateX(250px);
+  transform: translateX(350px);
   transition: transform 0.3s ease;
 }
 
-/* --- Halaman Utama (Gambar 2) --- */
+/* --- Halaman Utama --- */
 
 #home-screen {
   position: absolute;
@@ -123,7 +146,7 @@ body {
   display: flex;
   background-color: var(--card-bg);
   border-radius: 30px;
-  position: absolute;
+  position: fixed;
   bottom: 80px; /* Posisikan di bawah */
   left: 50%;
   transform: translateX(-50%);

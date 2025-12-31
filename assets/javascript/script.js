@@ -26,6 +26,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const query = searchInput.value;
 
     if (!query.trim()) {
+      resultsList.innerHTML =
+        '<div class="result-item" style="text-align: center; color: #ff6666;">Mohon Masukkan Kata Kunci Pencarian.</div>';
       console.warn("input pencarian kosong.");
       return;
     }
@@ -106,8 +108,8 @@ document.addEventListener("DOMContentLoaded", () => {
   searchButton.addEventListener("click", showResults);
 
   // Tambahkan event listener untuk Enter pada input
-  searchInput.addEventListener("keypress", (query) => {
-    if (query.key === "Enter") {
+  searchInput.addEventListener("keypress", (event) => {
+    if (event.key === "Enter") {
       showResults();
     }
   });
