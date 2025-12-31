@@ -1,210 +1,239 @@
+/* style.css */
 
 :root {
-  font-family: "poppins", arial, sans-serif;
+  --dark-bg: #1e1e1e;
+  --card-bg: #333333;
+  --text-color: #ffffff;
+  --link-color: #8ab4f8; /* Biru muda */
+}
+
+body {
+  background-color: var(--dark-bg);
+  color: var(--text-color);
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  
-  /* warna */
-  --white-color:#ffff;
-  --dark-color:#252525;
-  --primary-color:#009dff;
-  --secondary-color:#FFF58A;
-  --light-grey-color:#777777;
-  --light-pink-color:#faf4f5;
-
-  /* Ukuran Font */
-  --font-size-s: 0.9rem;
-  --font-size-n: 1rem;
-  --font-size-m: 1.12rem;
-  --font-size-l: 1.5rem;
-  --font-size-xl: 2rem;
-  --font-size-xxl: 2.3rem;
-  --font-size-xxxl: 2.5rem;
-  --font-size-xxxxl:5rem;
-
-  /* Ketebalan Font */
-  --font-weight-normal: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 600;
-  --font-weight-bold: 700;
-
-  /* Kelengkungan sudut */
-  --border-radius-s: 8px;
-  --border-radius-m: 30px;
-  --border-radius-circle: 50%;
-
-  /* kelebaran maximal */
-  --site-max-width: 1300px;
-
+  overflow-x: hidden;
 }
-.hero-section > img{
+
+/* --- Header & Background --- */
+
+.header {
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  height:  430px;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  background-color: var(--dark-bg);
+  z-index: 99;
+}
+
+.menu-icon,
+.logo {
+  text-decoration: none;
+  color: var(--text-color);
+  margin-right: 15px;
+  font-size: 1.5em;
+  cursor: pointer;
+  transition: opacity 1s ease;
+}
+
+/* Sidebar Style */
+#sidebar-menu {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 25;
+  top: 0;
+  left: 0;
+  background-color: var(--card-bg);
+  padding-top: 60px;
+  transform: translateX(-250px);
+  transition: transform 0.3s ease-in-out;
+}
+
+#sidebar-menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#sidebar-menu a {
+  padding: 15px 25px;
+  text-decoration: none;
+  font-size: 1.1em;
+  color: var(--text-color);
+  display: block;
+  transition: background-color 0.3s;
+}
+/* style.css */
+#main-content {
+  position: fixed; /* Penting agar z-index berfungsi */
+  z-index: 19; /* Pastikan ia memiliki konteks penumpukan */
+  transition: transform 0.3s ease;
+}
+
+.sidebar-open #sidebar-menu {
+  transform: translateX(0);
+}
+
+.sidebar-open #main-content {
+  transform: translateX(250px);
+  transition: transform 0.3s ease;
+}
+
+/* --- Halaman Utama (Gambar 2) --- */
+
+#home-screen {
   position: absolute;
   top: 0;
   left: 0;
-  z-index : -999;
-    object-fit: cover;
-    object-position: 0, -50px;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-.hero-section{
-  align-content: center;
-}
-
-.hero-section > img {
-    filter: brightness(0.6);
-}
-
-.hero-content{
-  align-content: center;
-  justify-content: center;
-  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Pusatkan di tengah */
   text-align: center;
-  padding-top: 150px;
+  transition: opacity 0.3s ease;
+  z-index: 5;
 }
 
-.hero-section .hero-content .judul{
-    color: rgb(255, 255, 255);
-    font-size: 5.5rem;
-    font-weight: var(--font-weight-bold);
-    font-family: "poppins", sans-serif;
-    margin-top: 2.3rem;
-    margin-bottom: 0;
-  }
-
-.hero-section .hero-content .subjudul{
-  color: rgb(255, 255, 255);
-  font-size: var(--font-size-l);
-  font-weight: var(--font-weight-medium);
-  font-family: "poppins", sans-serif;
-  margin-top: 0;
-    margin-bottom: 2rem;
+.welcome-text h1 {
+  font-size: 3em;
+  margin-bottom: 5px;
 }
 
-.hero-section .search-bar {
-     display: flex;
-    background-color: var(--white-color);
-    border-radius: var(--border-radius-s);
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
-    margin-top: 0rem;
-    margin-left: auto;
-    margin-right: auto;
-    width: 40rem;
-    height: 4rem;
-    align-content: left;
-  }
-  
-#magnifying-glass {
-    width: 2.3rem;
-    margin-left: 0.25rem;
+.welcome-text p {
+  font-size: 1.2em;
+  color: #aaaaaa;
 }
 
-#search-query { 
-    /* background-color: turquoise; */
-    position: absolute;
-    padding: 10px;
-    width: 32rem;
-    height: 3rem;
-    align-self: center;
-    margin-top: .5rem;
-    border: none;
-    outline: none;
-    font-size: var(--font-size-m);
-    font-family: "poppins", sans-serif;
-}
+/* --- Search Bar (Gaya Gambar 2 & 1) --- */
 
-#search {
-    background-color: var(--white-color);
-    position: relative;
-    align-self: center;
-    margin-top:0.7rem ;
-    margin-left: 33.5rem;
-    border-radius: 10px;
-}
-
-#search:hover {
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.hero-section .artikel{
-  width: 90%; /* Lebar kotak */
-  height: 1500px; /* Tinggi kotak */
-
-    /* 2. Memberikan Tampilan Visual */
-    background-color: rgba(162, 162, 162, 0.315); /* Warna latar belakang */
-    border: none; /* Garis tepi (border) */
-    border-radius: var(--border-radius-m);
-    
-    margin: 70px auto;
-}
-
-.artikel {
+.search-container {
+  width: 80%;
+  max-width: 650px;
   display: flex;
-  flex-direction: column;
-  align-content: center;
-  margin: auto;
+  background-color: var(--card-bg);
+  border-radius: 30px;
+  position: absolute;
+  bottom: 80px; /* Posisikan di bawah */
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  z-index: 15; /* Pastikan selalu di atas */
 }
 
-.artikel .card {
-  width: 95%;
+#search-input {
+  flex-grow: 1;
+  border: none;
+  background: none;
+  color: var(--text-color);
+  padding: 15px 25px;
+  font-size: 1em;
+  outline: none;
+}
+
+#search-button {
+  background-color: #555555;
+  color: var(--text-color);
+  border: none;
+  padding: 15px 20px;
+  cursor: pointer;
+  font-size: 1.2em;
+  border-radius: 0 30px 30px 0;
+  transition: background-color 0.2s;
+}
+
+#search-button:hover {
+  background-color: #666666;
+}
+
+/* --- Hasil Pencarian (Gambar 1) --- */
+
+#results-screen {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 100px; /* Ruang untuk header */
+  padding-bottom: 100px;
+  box-sizing: border-box;
+  z-index: 8;
+  transition: opacity 0.3s ease;
+}
+
+#fade-mask {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 132px;
+  z-index: 15;
+  pointer-events: none;
+  /* 🚨 Gradien Inti: Pudar dari Transparan ke Warna Latar Belakang */
+  background: var(--dark-bg);
+}
+
+.results-list {
+  width: 90%;
+  max-width: 800px;
+  margin: 10px auto 100px auto; /* Margin di bawah untuk ruang search bar */
+}
+
+.result-item {
+  background-color: var(--card-bg);
+  border-radius: 15px;
+  padding: 15px;
+  margin-bottom: 15px;
   display: flex;
-  justify-content: space-around;
-  align-content: center;
-  /* background-color: white; */
-  border-radius: 1.8rem;
-}
-.artikel .card .content {
-  padding-top: 20px;
-  display: flex;
-  flex-direction: column;
-  /* background-color: crimson; */
+  gap: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-.artikel ol {  
-  width: 87%;
-  display: flex;
-  flex-direction: column;
-  /* background-color: #FFF58A; */
-  align-self: center;
-  list-style-position: inside;
-  padding-top: 20px;
-}
-
-#ol-card {
-  font-family: "Poppins", sans-serif;
-  justify-content: center;
-  gap: 0.5rem;
-}
-
-.artikel li{
-  list-style-position: outside;
-  margin-bottom: 1.5rem;
-  padding: 0.5rem;
-  background-color: #ffff;
-  border-radius: 1.8rem;
-}
-
-.artikel li::marker {
-  font-size: xx-large;
+.result-item .number {
   font-weight: bold;
-  margin-right: 2rem;
-  margin-left: 1rem;
+  font-size: 1.5em;
+  color: #aaaaaa;
+  flex-shrink: 0;
 }
 
-/* Nganu judul cardnya */
-#card-title {
-  font-size: xx-large;
+.result-item .content {
+  flex-grow: 1;
+}
+
+.result-item .title {
+  color: var(--link-color);
+  text-decoration: none;
   font-weight: bold;
-  color: blue;  
-  text-decoration: underline;
-  margin-left: .5rem;
+  font-size: 1.1em;
+  display: block;
+  margin-bottom: 5px;
 }
 
-#card-subtitle {
-  font-size: large;
-  color: black;  
-  margin-left: .5rem;
+.result-item .snippet {
+  font-size: 0.9em;
+  line-height: 1.4;
+  color: #dddddd;
+}
+
+/* --- Kelas untuk menyembunyikan elemen --- */
+.hidden {
+  display: none;
+  opacity: 0;
+}
+
+/* Ketika hasil pencarian ditampilkan, halaman home-screen mungkin perlu disembunyikan */
+/* Agar tidak mengganggu scroll/interaksi */
+.shifted #home-screen {
+  opacity: 0;
+  pointer-events: none;
 }
