@@ -9,7 +9,7 @@ app = Flask(__name__)
 CORS(app)
 
 DOCUMENTS = [
-  {"id": 1, "title": "Pengembangan Sistem Informasi Geografis Pemetaan Lokasi UMKM Menggunakan Metode Waterfall. Penelitian ini membahas tentang perancangan dan implementasi SIG untuk membantu pemasaran produk UMKM di Denpasar.", "snippet": "...."},
+  {"id": 1, "title": "PENGELOLAAN SAMPAH DI DAERAH SEPATAN KABUPATEN TANGERANG", "snippet": "...."},
   {"id": 2, "title": "Analisis Perbandingan Algoritma Klasifikasi Teks untuk Deteksi Sentimen pada Ulasan Produk Kecantikan. Metode TF-IDF dan Naive Bayes digunakan dalam analisis ini.", "snippet": "...."},
   {"id": 3, "title": "Perancangan Aplikasi Mobile untuk Peningkatan Efisiensi Distribusi Logistik Menggunakan Firebase Realtime Database. Aplikasi ini berfokus pada optimasi rute.", "snippet": "...."},
   {"id": 4, "title": "Implementasi Metode *Clustering* K-Means untuk Segmentasi Pasar Produk UMKM. Fokus utama adalah pada pengelompokan pelanggan berdasarkan minat pembelian.", "snippet": "...."},
@@ -18,6 +18,7 @@ DOCUMENTS = [
   {"id": 7, "title": "lorem ipsum dolor st amet", "snippet": "...."},
   {"id": 8, "title": "lorem ipsum dolor st amet", "snippet": "...."},
   {"id": 9, "title": "lorem ipsum dolor st amet", "snippet": "...."},
+  
 ]
 text_corpus = [doc['title'] + " " + doc['snippet'] for doc in DOCUMENTS]
 
