@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LibFind - New Design</title>
-    <link rel="stylesheet" href="assets/css/style.css"/>
-    <link rel="stylesheet" href="assets/css/index.css"/>
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/content.css" />
   </head>
   <body>
     <nav id="sidebar-menu">
@@ -124,6 +124,7 @@
         </li>
       </ul>
     </nav>
+
     <div id="main-content">
       <header class="header">
         <div class="header-background"></div>
@@ -134,82 +135,26 @@
       </header>
     </div>
     <main id="home-screen">
-      <div class="welcome-text">
-        <h1>Hello Readers</h1>
-        <p>Cari Dokumen Kesukaan Anda</p>
-      </div>
-    </main>
-    <div class="search-container">
-      <input
-        type="text"
-        id="search-input"
-        placeholder="Find your book"
-        required
-      />
-      <button id="search-button">&rarr;</button>
-    </div>
-    <section id="results-screen">
-      <div id="fade-mask"></div>
-      <div class="results-list">
-        <div class="result-item" id="1">
-          <p class="number">1.</p>
-          <div class="content">
-            <a href="#" class="title">Lorem ipsum dolor sit amet</a>
-            <p class="snippet">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            </p>
-          </div>
-        </div>
-        <div class="result-item" id="2">
-          <p class="number">2.</p>
-          <div class="content">
-            <a href="#" class="title">Lorem ipsum dolor sit amet</a>
-            <p class="snippet">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            </p>
-          </div>
-        </div>
-        <div class="result-item" id="3">
-          <p class="number">3.</p>
-          <div class="content">
-            <a href="#" class="title">Lorem ipsum dolor sit amet</a>
-            <p class="snippet">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            </p>
-          </div>
-        </div>
-        <div class="result-item" id="4">
-          <p class="number">4.</p>
-          <div class="content">
-            <a href="#" class="title">Lorem ipsum dolor sit amet</a>
-            <p class="snippet">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            </p>
-          </div>
-        </div>
-        <div class="result-item">
-          <p class="number">5.</p>
-          <div class="content">
-            <a href="#" class="title">Lorem ipsum dolor sit amet</a>
-            <p class="snippet">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    </section>
+      <h2 class="document-title">Loading...</h2>
 
-    <script src="assets/javascript/script.js"></script>
+      <div class="document-body">
+        <div class="main-text">
+          <p>Loading document content...</p>
+        </div>
+
+        <div class="sidebar-text">
+          <div class="introduction">
+            <h3>Introduction</h3>
+            <p>Loading introduction...</p>
+          </div>
+        </div>
+      </div>
+
+      <a href="#" class="pdf-button">
+        <i class="fas fa-file-pdf"></i>
+        <span>PDF</span>
+      </a>
+    </main>
+    <script src="assets/javascript/content.js"></script>
   </body>
 </html>
