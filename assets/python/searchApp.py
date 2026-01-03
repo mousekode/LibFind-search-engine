@@ -118,7 +118,7 @@ features = vectorizer.get_feature_names_out()
 
 @app.route('/api/search', methods=['GET'])
 def search_documents():
-  query = request.args.get('q')
+  query = request.args.get('q', '')
   if not query:
     return jsonify({"message": "Mohon masukan Quary Pencarian.", "result": []})
   print(f"\n[INFO] Query diterima: {query}")
@@ -153,4 +153,4 @@ def search_documents():
   })
 
 if __name__ == '__main__':
-  app.run(debug=True, port=8000)
+  app.run(debug=True)

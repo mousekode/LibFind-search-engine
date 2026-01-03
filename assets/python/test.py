@@ -86,7 +86,7 @@ def search_documents():
 
   processed_query = Preprocess_text(query)
   print(f"\n[INFO] Query asli: {query}")
-  print(f"\n[INFO] Query diproses: {query}")
+  print(f"\n[INFO] Query diproses: {processed_query}")
 
   if not processed_query:
     return jsonify({"message": "Query tidak valid setelah pemrosesan.", "result": []})
