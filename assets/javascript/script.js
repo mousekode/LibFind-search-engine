@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchInput = document.getElementById("search-input");
   const hamburgerIcon = document.getElementById("hamburger");
   const body = document.body;
+
   // Fungsi untuk menampilkan hasil
 
   const showResults = async () => {
@@ -32,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
     const encodedQuery = encodeURIComponent(query);
-    const backendUrl = `http://127.0.0.1:8000/api/search?q=${encodedQuery}`;
+    const backendUrl = `http://127.0.0.1:5000/api/search?q=${encodedQuery}`;
 
     // 1. Sembunyikan konten utama (Hello Readers)
     resultsScreen.style.opacity = "0";
@@ -64,25 +65,46 @@ document.addEventListener("DOMContentLoaded", () => {
     searchContainer.style.bottom = "80px"; // Hilangkan posisi bottom
   };
 
-  // // Sambung ke connector.js
-  // const passToConnector = (value) => {
-  //   runQuery(value);
-  // };
-
-  // --- Inisialisasi Tampilan ---
-  // Pastikan hasil pencarian disembunyikan saat load
+  // Inisialisasi Tampilan
   resultsScreen.classList.add("hidden");
-  //Fungsi membuka sidebar
+
+  // Fungsi membuka sidebar
   const toggleSideBar = () => {
     body.classList.toggle("sidebar-open");
   };
 
-  //Event listener untuk hamburger menu
+  // Fungsi untuk menutup sidebar
+  const closeSidebar = () => {
+    body.classList.remove("sidebar-open");
+  };
+
+  // Event listener untuk hamburger menu
   if (hamburgerIcon) {
     hamburgerIcon.addEventListener("click", toggleSideBar);
   }
 
-  //fungsi untuk menempelkan data ke HTML
+  // Event listener untuk menutup sidebar saat klik overlay
+  body.addEventListener("click", (e) => {
+    if (body.classList.contains("sidebar-open")) {
+      // Jika klik di luar sidebar dan bukan hamburger icon
+      const sidebar = document.getElementById("sidebar-menu");
+      if (!sidebar.contains(e.target) && e.target !== hamburgerIcon) {
+        closeSidebar();
+      }
+    }
+  });
+
+  // Fungsi untuk menyimpan data dokumen ke localStorage
+  const saveDocumentData = (doc) => {
+    localStorage.setItem("currentDocument", JSON.stringify(doc));
+  };
+
+  // Fungsi untuk navigasi ke halaman content
+  const navigateToContent = (doc) => {
+    saveDocumentData(doc);
+    window.location.href = "content.html";
+  };
+  // Fungsi untuk menempelkan data ke HTML
   const renderResults = (documents) => {
     resultsList.innerHTML = "";
 
@@ -91,19 +113,37 @@ document.addEventListener("DOMContentLoaded", () => {
         '<div class="result-item">Tidak ada dokumen yang ditemukan.</div>';
       return;
     }
-    documents.forEach((doc, index) => {
-      const itemHtml = `
-      <div class="result-item">
-      <p class="number">${index + 1}.</p>
-      <div class="content">
-      <a href="#" class="title">${doc.title}</a>
-      <p class="snippet">${doc.snippet}</p>
-      </div>
-      </div>
+
+    documents.slice(0, 5).forEach((doc, index) => {
+      const textLimit = 260;
+      const snippet =
+        doc.snippet.length > textLimit
+          ? doc.snippet.substring(0, textLimit) + "..."
+          : doc.snippet;
+
+      // Membuat elemen result-item
+      const resultItem = document.createElement("div");
+      resultItem.className = "result-item";
+      resultItem.style.cursor = "pointer";
+
+      resultItem.innerHTML = `
+        <p class="number">${index + 1}.</p>
+        <div class="content">
+          <a href="#" class="title">${doc.title}</a>
+          <p class="snippet">${snippet}</p>
+        </div>
       `;
-      resultsList.innerHTML += itemHtml;
+
+      // Event listener untuk klik pada seluruh item
+      resultItem.addEventListener("click", (e) => {
+        e.preventDefault();
+        navigateToContent(doc);
+      });
+
+      resultsList.appendChild(resultItem);
     });
   };
+
   // Tambahkan event listener untuk tombol
   searchButton.addEventListener("click", showResults);
 

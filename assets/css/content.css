@@ -1,0 +1,185 @@
+/* Container untuk content page */
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    margin-top: 80px; /* Beri jarak dari navbar */
+    margin-bottom: 40px;
+  }
+  
+  /* Document Title */
+  .document-title {
+    font-size: 2em;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+    padding: 30px 20px;
+    margin: 0;
+    background-color: var(--dark-bg);
+    border-bottom: 3px solid #555555;
+  }
+  
+  /* Document Body Layout */
+  .document-body {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    padding: 40px;
+    background-color: #ffffff;
+    color: #333333;
+  }
+  
+  /* Main Text (Konten Utama - Kiri) */
+  .main-text {
+    flex: 2;
+    min-width: 0; /* Penting untuk text wrapping */
+  }
+  
+  .main-text p {
+    font-size: 1em;
+    line-height: 1.8;
+    color: #333333;
+    text-align: justify;
+    margin-bottom: 20px;
+  }
+  
+  .main-text .separator {
+    border: none;
+    border-top: 2px solid #cccccc;
+    margin: 30px 0;
+  }
+  
+  /* Sidebar Text (Introduction - Kanan) */
+  .sidebar-text {
+    flex: 1;
+    background-color: #f9f9f9;
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    align-self: flex-start; /* Stick to top */
+    position: sticky;
+    top: 100px; /* Jarak dari top saat scroll */
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+  }
+  
+  .introduction h3 {
+    font-size: 1.3em;
+    color: #2c2c2c;
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #8ab4f8;
+    padding-bottom: 8px;
+  }
+  
+  .introduction p {
+    font-size: 0.9em;
+    line-height: 1.6;
+    color: #555555;
+    margin-bottom: 12px;
+  }
+  
+  /* PDF Button */
+  .pdf-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #8ab4f8;
+    color: #ffffff;
+    padding: 15px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    font-size: 1.1em;
+    box-shadow: 0 4px 15px rgba(138, 180, 248, 0.4);
+    transition: all 0.3s ease;
+    z-index: 50;
+  }
+  
+  .pdf-button:hover {
+    background-color: #6a9fea;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(138, 180, 248, 0.6);
+  }
+  
+  .pdf-button i {
+    font-size: 1.3em;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .document-body {
+      flex-direction: column;
+      padding: 20px;
+    }
+  
+    .sidebar-text {
+      position: relative;
+      top: 0;
+      max-height: none;
+    }
+  
+    .document-title {
+      font-size: 1.5em;
+      padding: 20px 15px;
+    }
+  
+    .pdf-button {
+      bottom: 15px;
+      right: 15px;
+      padding: 12px 20px;
+      font-size: 1em;
+    }
+  
+    .container {
+      margin-top: 70px;
+      width: 95%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .document-title {
+      font-size: 1.2em;
+    }
+  
+    .main-text p {
+      font-size: 0.95em;
+    }
+  
+    .introduction p {
+      font-size: 0.85em;
+    }
+  }
+  
+  /* Override untuk body di content page */
+  body.content-page {
+    background-color: var(--dark-bg);
+    align-items: flex-start; /* Tidak center secara vertikal */
+    padding-top: 0;
+  }
+  
+  /* Scrollbar styling untuk sidebar introduction */
+  .sidebar-text::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  .sidebar-text::-webkit-scrollbar-track {
+    background-color: #f0f0f0;
+    border-radius: 10px;
+  }
+  
+  .sidebar-text::-webkit-scrollbar-thumb {
+    background-color: #8ab4f8;
+    border-radius: 10px;
+  }
+  
+  .sidebar-text::-webkit-scrollbar-thumb:hover {
+    background-color: #6a9fea;
+  }
