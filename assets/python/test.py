@@ -37,6 +37,45 @@ def extract_text_from_pdf(filepath):
     return None
   return text
 
+def extract_abstract_snippet(full_text, max_length=500):
+    """Mencari dan mengambil teks Abstract atau Abstrak dari teks penuh."""
+    
+    # Mencari Abstract Bahasa Inggris
+    start_en = full_text.find("Abstract:")
+    if start_en != -1:
+        start_index = start_en + len("Abstract:")
+        # Tentukan akhir dengan mencari penanda umum (misalnya Keywords:) atau baris kosong yang signifikan
+        end_en = full_text.find("Keywords:", start_index) 
+        
+        if end_en != -1:
+            abstract_text = full_text[start_index:end_en].strip()
+        else:
+            abstract_text = full_text[start_index:].strip()
+            
+        # Jika Abstract ditemukan, bersihkan spasi berlebihan
+        # dan batasi panjangnya
+        cleaned_snippet = " ".join(abstract_text.split()) 
+        return cleaned_snippet[:max_length] + "..."
+
+    # Mencari Abstrak Bahasa Indonesia
+    start_id = full_text.lower().find("abstrak:")
+    if start_id != -1:
+        start_index = start_id + len("abstrak:")
+        # Tentukan akhir dengan mencari penanda umum (misalnya Keywords)
+        end_id = full_text.lower().find("kata kunci:", start_index)
+        
+        if end_id != -1:
+             # Kita perlu menggunakan index yang sudah lowercase/find() untuk memotong dari teks asli
+             abstract_text = full_text[start_index:end_id].strip()
+        else:
+             abstract_text = full_text[start_index:].strip()
+             
+        cleaned_snippet = " ".join(abstract_text.split())
+        return cleaned_snippet[:max_length] + "..."
+
+    # Jika tidak ditemukan penanda, kembali ke 200 karakter pertama sebagai fallback
+    return " ".join(full_text[:500].split()) + "..."
+
 # memuat dan memproses dokumen
 DOCUMENTS = []
 text_corpus = []
@@ -52,12 +91,12 @@ if os.path.isdir(DOCUMENTS_FOLDER):
 
       if raw_text:
         proccessed_text = Preprocess_text(raw_text)
-
+        raw_snippet = extract_abstract_snippet(raw_text)
         doc_id = len(DOCUMENTS) + 1
         DOCUMENTS.append({
           'id': doc_id,
           'title': filename,
-          'raw_snippet': raw_text[:200] + "...",
+          'snippet': raw_snippet[:200] + "...",
           'processed_text': proccessed_text
         })
         text_corpus.append(proccessed_text)
@@ -66,7 +105,7 @@ if os.path.isdir(DOCUMENTS_FOLDER):
     else: 
       print(f"[ERROR] Folder dokumen tidak ditemukan: {DOCUMENTS_FOLDER}")
     # Tambahkan beberapa data dummy jika tidak ada folder
-    DOCUMENTS.append({'id': 0, 'title': 'Dummy Doc 1', 'raw_snippet': 'ini dokumen dummy', 'processed_text': 'ini dokumen dummy'})
+    DOCUMENTS.append({'id': 0, 'title': 'Dummy Doc 1', 'snippet': 'ini dokumen dummy', 'processed_text': 'ini dokumen dummy'})
     text_corpus.append('ini dokumen dummy')
 
 if text_corpus:
@@ -101,8 +140,8 @@ def search_documents():
       if 'processed_text' in doc:
         del doc['processed_text']
 
-      if'raw_snippet' in doc and len(doc['raw_snippet']) > 500:
-        doc['raw_snippet'] = doc['raw_snippet'].encode('utf-8', 'ignore').decode('utf-8')[:500] + "..."
+      if'snippet' in doc and len(doc['snippet']) > 500:
+        doc['snippet'] = doc['snippet'].encode('utf-8', 'ignore').decode('utf-8')[:500] + "..."
       doc['score'] = score
       doc['relevansi'] = f"{score*100:.2f}%"
       results.append(doc)
