@@ -62,5 +62,32 @@ def search_documents():
     "results": results
   })
 
+  # Add this route to your Flask app
+@app.route('/assets/python/document/<path:filename>')
+def serve_pdf(filename):
+    # This points to the folder where the PDFs actually live
+    pdf_directory = script_dir / 'document'
+    return send_from_directory(pdf_directory, filename)
+
+# Cara untuk tidak menggunakan route statis Flask default
+# Agar tidak 404 ketika refresh halaman
+# Route for the main page
+@app.route('/')
+@app.route('/index.html')
+def serve_index():
+    # Looks for index.html in the folder two levels up from searchApp.py
+    return send_from_directory('../../', 'index.html')
+
+# Route for the content page
+@app.route('/content.html')
+def serve_content():
+    return send_from_directory('../../', 'content.html')
+
+# General route for all other assets (CSS, JS, Images)
+@app.route('/assets/<path:path>')
+def serve_assets(path):
+    # Points to the 'assets' folder in your project root
+    return send_from_directory('../../assets', path)
+
 if __name__ == '__main__':
   app.run(debug=True, port=5501)

@@ -116,10 +116,15 @@ def _extract_abstract_from_text(text, max_length=1000):
 
 # New sanitization helpers
 def _sanitize_text(s):
-    """Replace semicolons with colons in a string."""
+    """Replace colons with periods in a string."""
     if not isinstance(s, str):
         return s
-    return s.replace(";", ":")
+    return s.replace(":", ".")
+
+def _sanitize_filename(filename):
+    """Removes characters that cause 404 errors in URLs."""
+    # Replace colons, slashes, and other risky characters with underscores
+    return re.sub(r'[:*?"<>|]', '_', filename)
 
 def _sanitize_documents(documents):
     """Return a shallow copy of documents with semicolons replaced in all string values."""
@@ -172,11 +177,14 @@ def process_documents(document_folder="/document"):
                     # final fallback: use start of full text
                     snippet = (text[:500] if text else "")
                 snippet = _sanitize_text(snippet)
+                filename = file_path.name
+                web_path = f"assets/python/document/{filename}"
 
                 doc = {
                     "id": doc_id,
                     "title": title,
-                    "snippet": snippet
+                    "snippet": snippet,
+                    "doc_path": web_path
                 }
 
                 documents.append(doc)
