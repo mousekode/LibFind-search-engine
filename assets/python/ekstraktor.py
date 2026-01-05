@@ -197,7 +197,7 @@ def process_documents(document_folder="/document"):
 
     return documents
 
-def save_documents_json(documents, output_file="assets/python/processed.json"):
+def save_documents_json(documents, output_file="assets/python/ekstrak.json"):
     """
     Saves the processed documents to a JSON file
     """

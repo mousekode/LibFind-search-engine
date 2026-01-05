@@ -14,7 +14,7 @@ CORS(app)
 
 # Get the directory of the current script
 script_dir = Path(__file__).parent
-doc_path = script_dir / 'processed.json'
+doc_path = script_dir / 'ekstrak.json'
 
 with open(doc_path, 'r', encoding='utf-8') as f:
   DOCUMENTS = json.load(f)
