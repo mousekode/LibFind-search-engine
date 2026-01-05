@@ -12,7 +12,7 @@ import os
 app = Flask(__name__)
 CORS(app)
 
-# Get the directory of the current script
+# bapak file / skrip ini berada di direktori apa?
 script_dir = Path(__file__).parent
 doc_path = script_dir / 'ekstrak.json'
 
