@@ -1,4 +1,5 @@
 from flask import Flask, jsonify, request
+from flask import send_from_directory
 from flask_cors import CORS
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
