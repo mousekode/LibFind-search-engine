@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
     const encodedQuery = encodeURIComponent(query);
-    const backendUrl = `http://127.0.0.1:5000/api/search?q=${encodedQuery}`;
+    const backendUrl = `http://127.0.0.1:5501/api/search?q=${encodedQuery}`;
 
     // 1. Sembunyikan konten utama (Hello Readers)
     resultsScreen.style.opacity = "0";
