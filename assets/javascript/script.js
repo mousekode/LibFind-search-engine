@@ -68,6 +68,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // Inisialisasi Tampilan
   resultsScreen.classList.add("hidden");
 
+  //Definisikan data Menu dalam betuk array objek
+
+  
   // Fungsi membuka sidebar
   const toggleSideBar = () => {
     body.classList.toggle("sidebar-open");
@@ -154,3 +157,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
