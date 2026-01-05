@@ -1,5 +1,6 @@
 // script.js
 
+ // --- 1. NAVIGASI & PENYIMPANAN ---
 document.addEventListener("DOMContentLoaded", () => {
   const searchButton = document.getElementById("search-button");
   const searchContainer = document.querySelector(".search-container");
@@ -7,10 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const resultsList = document.querySelector(".results-list");
   const resultsScreen = document.getElementById("results-screen");
   const searchInput = document.getElementById("search-input");
-  const hamburgerIcon = document.getElementById("hamburger");
   const body = document.body;
-
-  // --- 1. FUNGSI NAVIGASI & PENYIMPANAN ---
 
   // --- 2. FUNGSI UNTUK MENAMPILKAN HASIL (BAGIAN YANG KAMU TANYAKAN) ---
 
@@ -34,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
       resultItem.innerHTML = `
           <p class="number">${index + 1}.</p>
           <div class="content">
-            <a href="${pdfPath}" target="_blank" class="title-link" style="text-decoration: none">${doc.title}</a>
+            <a href="${pdfPath}" target="_blank" class="title-link" style="text-decoration:none">${doc.title}</a>
             <p class="snippet">${doc.snippet.substring(0, 260)}...</p>
           </div>
         `;
