@@ -12,11 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- 1. FUNGSI NAVIGASI & PENYIMPANAN ---
 
-  const saveDocumentData = (doc) => {
-    localStorage.setItem("currentDocument", JSON.stringify(doc));
-  };
-
-
   // --- 2. FUNGSI UNTUK MENAMPILKAN HASIL (BAGIAN YANG KAMU TANYAKAN) ---
 
   const renderResults = (documents) => {
