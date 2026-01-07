@@ -1,6 +1,6 @@
 // script.js
 
- // --- 1. NAVIGASI & PENYIMPANAN ---
+// --- 1. NAVIGASI & PENYIMPANAN ---
 document.addEventListener("DOMContentLoaded", () => {
   const searchButton = document.getElementById("search-button");
   const searchContainer = document.querySelector(".search-container");
@@ -16,7 +16,8 @@ document.addEventListener("DOMContentLoaded", () => {
     resultsList.innerHTML = "";
 
     if (documents.length === 0) {
-      resultsList.innerHTML = '<div class="result-item" style="text-align: center;">Tidak ada dokumen yang ditemukan.</div>';
+      resultsList.innerHTML =
+        '<div class="result-item" style="text-align: center;">Tidak ada dokumen yang ditemukan.</div>';
       return;
     }
 
@@ -32,7 +33,9 @@ document.addEventListener("DOMContentLoaded", () => {
       resultItem.innerHTML = `
           <p class="number">${index + 1}.</p>
           <div class="content">
-            <a href="${pdfPath}" target="_blank" class="title-link" style="text-decoration:none">${doc.title}</a>
+            <a href="${pdfPath}" target="_blank" class="title-link" style="text-decoration:none">${
+        doc.title
+      }</a>
             <p class="snippet">${doc.snippet.substring(0, 260)}...</p>
           </div>
         `;
@@ -45,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
           e.preventDefault();
           alert("File PDF tidak ditemukan.");
         }
-        e.stopPropagation(); 
+        e.stopPropagation();
       });
 
       // Event Klik Kotak: Pindah ke halaman PDF
@@ -83,12 +86,13 @@ document.addEventListener("DOMContentLoaded", () => {
     searchContainer.style.bottom = "80px";
 
     const encodedQuery = encodeURIComponent(query);
-    const backendUrl = `http://127.0.0.1:5501/api/search?q=${encodedQuery}`;
+    const backendUrl = `http://127.0.0.1:5000/api/search?q=${encodedQuery}`;
 
     try {
       const response = await fetch(backendUrl);
-      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-      
+      if (!response.ok)
+        throw new Error(`HTTP error! status: ${response.status}`);
+
       const data = await response.json();
 
       if (data && data.results) {
@@ -98,7 +102,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     } catch (error) {
       console.error("Gagal mengambil data:", error);
-      resultsList.innerHTML = '<div class="result-item">Gagal Memuat Hasil. Pastikan Python (Flask) sudah jalan.</div>';
+      resultsList.innerHTML =
+        '<div class="result-item">Gagal Memuat Hasil. Pastikan Python (Flask) sudah jalan.</div>';
     }
   };
 

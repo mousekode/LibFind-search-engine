@@ -1,8 +1,11 @@
 from flask import Flask, jsonify, request
 from flask import send_from_directory
 from flask_cors import CORS
+import nltk
+from  nltk.corpus import stopwords
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
 import pandas as pd
 import numpy as np
 import json
@@ -12,6 +15,7 @@ import os
 app = Flask(__name__)
 CORS(app)
 
+indonesian_stopwords = set(stopwords.words('indonesian'))
 # bapak file / skrip ini berada di direktori apa?
 script_dir = Path(__file__).parent
 doc_path = script_dir / 'ekstrak.json'
@@ -19,12 +23,23 @@ doc_path = script_dir / 'ekstrak.json'
 with open(doc_path, 'r', encoding='utf-8') as f:
   DOCUMENTS = json.load(f)
 
+factory = StemmerFactory()
+stemmer = factory.create_stemmer()
+
+def custom_tokenizer(text):
+  #Tokenisasi default TfidfVectorizer
+  tokens = TfidfVectorizer().build_tokenizer()(text)
+  #Stemming setiap token
+  stemmed_tokens = [stemmer.stem(token) for token in tokens]
+  return stemmed_tokens
 
 text_corpus = [doc['title'] + " " + doc['snippet'] for doc in DOCUMENTS]
 
-vectorizer = TfidfVectorizer()
+indonesian_stopwords = stopwords.words('indonesian')
+tambahan_stopwords = ['baiknya', 'berkali', 'kali', 'kurangnya', 'mata', 'olah', 'sekurang', 'setidak', 'tama', 'tidaknya']
+final_stopwords = indonesian_stopwords + tambahan_stopwords
+vectorizer = TfidfVectorizer(stop_words=final_stopwords)
 X = vectorizer.fit_transform(text_corpus)
-features = vectorizer.get_feature_names_out()
 
 @app.route('/api/search', methods=['GET'])
 def search_documents():
@@ -51,7 +66,7 @@ def search_documents():
   
   if results:
     print("Hasil Perengkingan Teratas:")
-    for doc in results [:3]:
+    for doc in results [:5]:
       print(f"[{doc['ranking']}] {doc['title'][:50]}... | Skor: {doc['relevansi']}")
   else:
     print("tidak ditemukan dokumen yang relevan.")
@@ -90,8 +105,4 @@ def serve_assets(path):
     return send_from_directory('../../assets', path)
 
 if __name__ == '__main__':
-<<<<<<< HEAD
   app.run(debug=True)
-=======
-  app.run(debug=True, port=5501)
->>>>>>> 020ff811153a94823a7cd3b7aaec1b694aeb0dc0

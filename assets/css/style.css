@@ -23,14 +23,6 @@ body {
 /* --- Header & Background --- */
 
 .header {
-  position: relative;
-  overflow: hidden;
-  height: 180px;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-}
-
-.nav-bar {
   position: fixed;
   top: 0;
   left: 0;
@@ -42,101 +34,15 @@ body {
   z-index: 99;
 }
 
-.menu-icon,
 .logo {
   text-decoration: none;
   color: var(--text-color);
   margin-right: 15px;
-  font-size: 1.5em;
+  font-size: 1.85em;
   cursor: pointer;
   transition: opacity 1s ease;
-}
-
-/* === SIDEBAR STYLE (FIXED) === */
-#sidebar-menu {
-  height: 100vh;
-  width: 350px;
-  position: fixed;
-  z-index: 100; /* Lebih tinggi dari nav-bar */
-  top: 0;
-  left: 0;
-  background-color: var(--card-bg);
-  padding-top: 35px;
-  transform: translateX(-350px); /* Sembunyikan di kiri */
-  transition: transform 0.3s ease-in-out;
-  overflow-y: auto;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
-}
-
-#sidebar-menu::-webkit-scrollbar {
-  width: 5px;
-}
-
-#sidebar-menu::-webkit-scrollbar-track {
-  background-color: var(--dark-bg);
-}
-
-#sidebar-menu ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-#sidebar-menu h3 {
-  margin-top: 0px;
-  padding: 5px 17px;
-  border-bottom: 1.5px solid #666666;
-  font-size: 1.3em;
-}
-
-#sidebar-menu a {
-  padding: 15px 17px;
-  text-decoration: none;
-  font-size: 0.9em;
-  color: var(--text-color);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: block;
-  transition: background-color 0.3s;
-}
-
-#sidebar-menu ul li a:hover {
-  background-color: #666666;
-}
-
-/* Ketika sidebar terbuka */
-.sidebar-open #sidebar-menu {
-  transform: translateX(0); /* Tampilkan sidebar */
-}
-
-/* Overlay gelap saat sidebar terbuka */
-.sidebar-open::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 99; /* Di bawah sidebar tapi di atas konten */
-  animation: fadeIn 0.3s ease;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-/* Main content TIDAK bergeser */
-#main-content {
-  position: fixed;
-  width: 100%;
-  z-index: 10;
-  transition: none; /* Tidak ada transisi */
+  margin: 0;
+  font-weight: bold;
 }
 
 .container {
@@ -146,34 +52,6 @@ body {
   background-color: #f4f4f4;
   border-radius: 15px;
   overflow: hidden;
-}
-
-/* --- HEADER --- */
-
-.header-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.4);
-  display: flex;
-  align-items: center;
-  padding: 0 20px;
-  color: white;
-  font-size: 24px;
-}
-
-.back-icon {
-  font-size: 28px;
-  margin-right: 15px;
-  cursor: pointer;
-}
-
-.logo {
-  margin: 0;
-  font-weight: bold;
-  font-size: 32px;
 }
 
 /* --- Halaman Utama --- */
@@ -203,7 +81,7 @@ body {
   color: #aaaaaa;
 }
 
-/* --- Search Bar (Gaya Gambar 2 & 1) --- */
+/* --- Desain Search Bar --- */
 
 .search-container {
   width: 80%;
@@ -213,7 +91,7 @@ body {
   background-color: var(--card-bg);
   border-radius: 30px;
   position: fixed;
-  bottom: 150px;
+  bottom: 80px;
   left: 50%;
   transform: translateX(-50%);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
@@ -245,7 +123,7 @@ body {
   background-color: #666666;
 }
 
-/* --- Hasil Pencarian (Gambar 1) --- */
+/* --- Desain Hasil Pencarian --- */
 
 #results-screen {
   position: relative;
@@ -337,39 +215,19 @@ body {
   pointer-events: none;
 }
 
-/* === RESPONSIVE === */
-@media (max-width: 768px) {
-  #sidebar-menu {
-    width: 280px;
-    transform: translateX(-280px);
-  }
-
-  .sidebar-open #sidebar-menu {
-    transform: translateX(0);
-  }
-}
-
-@media (max-width: 480px) {
-  #sidebar-menu {
-    width: 100%;
-    max-width: 280px;
-    transform: translateX(-100%);
-  }
-}
-
 /* Memaksa warna tetap biru muda meskipun sudah diklik (visited) */
 .result-item .content .title-link,
 .result-item .content .title-link:visited {
-    color: var(--link-color) !important;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.1em;
-    display: block;
-    margin-bottom: 5px;
+  color: var(--link-color) !important;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1em;
+  display: block;
+  margin-bottom: 5px;
 }
 
 /* Opsional: Efek saat mouse mendekat agar lebih interaktif */
 .result-item .content .title-link:hover {
-    text-decoration: underline;
-    filter: brightness(1.2); /* Membuat warna sedikit lebih terang saat hover */
+  text-decoration: underline;
+  filter: brightness(1.2); /* Membuat warna sedikit lebih terang saat hover */
 }
