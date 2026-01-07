@@ -356,3 +356,20 @@ body {
     transform: translateX(-100%);
   }
 }
+
+/* Memaksa warna tetap biru muda meskipun sudah diklik (visited) */
+.result-item .content .title-link,
+.result-item .content .title-link:visited {
+    color: var(--link-color) !important;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Opsional: Efek saat mouse mendekat agar lebih interaktif */
+.result-item .content .title-link:hover {
+    text-decoration: underline;
+    filter: brightness(1.2); /* Membuat warna sedikit lebih terang saat hover */
+}
