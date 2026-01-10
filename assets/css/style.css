@@ -43,16 +43,7 @@ body {
   transition: opacity 1s ease;
   margin: 0;
   font-weight: bold;
-}
-
-.container {
-  width: 90%;
-  max-width: 1000px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  background-color: #f4f4f4;
-  border-radius: 15px;
-  overflow: hidden;
-}
+} 
 
 /* --- Halaman Utama --- */
 
